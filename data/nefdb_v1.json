@@ -681,5 +681,637 @@
     "confidence": "medium",
     "methodology_note": "Derived by applying a 58.57% gas / 40.92% hydro / 0.51% other regional generation mix to YEDC Q2 2024 billed energy (93.852 GWh) and IPCC 2006 stationary-combustion EFs for natural gas (CO2=56,100, CH4=1, N2O=0.1 kg/TJ) converted with AR5 GWP (CH4=28, N2O=265). Oil share is zero. Hydro/solar/wind/biomass treated as zero-emission. EF excludes T&D losses and upstream fugitive emissions.",
     "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.diesel.stationary",
+    "category": "fuel_combustion",
+    "subcategory": "diesel_stationary",
+    "description": "Stationary combustion emission factor for diesel fuel, applicable to generators, boilers, and other fixed equipment in Nigeria.",
+    "value": 2.662,
+    "unit": "kgCO2e_per_litre",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (gas/diesel oil)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "EPA_GHG_HUB_2024",
+        "title": "EPA GHG Emission Factors Hub 2024",
+        "publisher": "US EPA",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "DEFRA 2024 100% mineral diesel factor adopted as primary; IPCC 2006 Table 2.2 gas/diesel oil factor corroborates within 1%. AR5 GWP.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.diesel.stationary.kwh.rated",
+    "category": "fuel_combustion",
+    "subcategory": "diesel_stationary_kwh",
+    "description": "Rated-efficiency diesel emission factor per kilowatt-hour of generated electricity, derived for modern generator performance assumptions.",
+    "value": 0.813,
+    "unit": "kgCO2e_per_kWh",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (gas/diesel oil)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "SOMORIN_2017",
+        "title": "Life cycle assessment of self-generated electricity in Nigeria",
+        "publisher": "Somorin et al., Renewable Energy",
+        "year": 2017
+      }
+    ],
+    "uncertainty_pct": 15,
+    "confidence": "medium",
+    "methodology_note": "Derived from stationary diesel factor using standard generator conversion: 2.662 / (9.927 kWh thermal per litre x 0.33) = 0.813. 33% rated efficiency is a NEFDB assumption.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.diesel.stationary.kwh.field",
+    "category": "fuel_combustion",
+    "subcategory": "diesel_stationary_kwh",
+    "description": "Field-efficiency diesel emission factor per kilowatt-hour of generated electricity, recommended default for Nigeria's aged generator fleet.",
+    "value": 0.958,
+    "unit": "kgCO2e_per_kWh",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (gas/diesel oil)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "SOMORIN_2017",
+        "title": "Life cycle assessment of self-generated electricity in Nigeria",
+        "publisher": "Somorin et al., Renewable Energy",
+        "year": 2017
+      }
+    ],
+    "uncertainty_pct": 18,
+    "confidence": "medium",
+    "methodology_note": "2.662 / (9.927 x 0.28) = 0.958. 28% field efficiency is a NEFDB assumption for Nigeria's aged genset fleet, informed by Somorin et al. 2017. This is the recommended default.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.petrol.stationary",
+    "category": "fuel_combustion",
+    "subcategory": "petrol_stationary",
+    "description": "Stationary combustion emission factor for petrol fuel, applicable to stationary engines and generators in Nigeria.",
+    "value": 2.354,
+    "unit": "kgCO2e_per_litre",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (motor gasoline)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "EPA_GHG_HUB_2024",
+        "title": "EPA GHG Emission Factors Hub 2024",
+        "publisher": "US EPA",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "DEFRA 2024 100% mineral petrol; IPCC 2006 Table 2.2 motor gasoline corroborates.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.lpg.stationary",
+    "category": "fuel_combustion",
+    "subcategory": "lpg_stationary",
+    "description": "Stationary combustion emission factor for liquefied petroleum gas (LPG) in Nigeria.",
+    "value": 1.557,
+    "unit": "kgCO2e_per_litre",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (liquefied petroleum gas)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "EPA_GHG_HUB_2024",
+        "title": "EPA GHG Emission Factors Hub 2024",
+        "publisher": "US EPA",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "DEFRA 2024 LPG factor.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.cng.stationary",
+    "category": "fuel_combustion",
+    "subcategory": "cng_stationary",
+    "description": "Stationary combustion emission factor for compressed natural gas (CNG), expressed per kilogram of fuel in Nigeria.",
+    "value": 2.568,
+    "unit": "kgCO2e_per_kg",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (natural gas)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 15,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 CNG per-kg factor. Per-kg value is pressure-independent; per-litre values require a density assumption.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.naturalgas.stationary",
+    "category": "fuel_combustion",
+    "subcategory": "natural_gas_stationary",
+    "description": "Stationary combustion emission factor for natural gas, expressed per cubic metre of grid gas in Nigeria.",
+    "value": 2.045,
+    "unit": "kgCO2e_per_m3",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (natural gas)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "NNPC_STATS_2023",
+        "title": "NNPC Annual Statistics Bulletin S3",
+        "publisher": "NNPC",
+        "year": 2023
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "DEFRA 2024 natural gas per-m3 factor. Assumes grid-gas density; Nigeria-specific gas spec may differ.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.fuel.hfo.stationary",
+    "category": "fuel_combustion",
+    "subcategory": "hfo_stationary",
+    "description": "Stationary combustion emission factor for heavy fuel oil (HFO) in Nigeria.",
+    "value": 3.175,
+    "unit": "kgCO2e_per_litre",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH2",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 2.2 (residual fuel oil)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "EPA_GHG_HUB_2024",
+        "title": "EPA GHG Emission Factors Hub 2024",
+        "publisher": "US EPA",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 15,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 fuel oil; IPCC 2006 Table 2.2 residual fuel oil corroborates.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.petrol.per_litre",
+    "category": "transport",
+    "subcategory": "road_fuel_petrol",
+    "description": "Nigeria fuel-based Scope 1 emission factor for petrol combustion in road transport, expressed per litre",
+    "value": 2.354,
+    "unit": "kgCO2e_per_litre",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 (road vehicles, gasoline default CO2; converted with AR5 GWP)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "EPA_GHG_HUB_2024",
+        "title": "EPA GHG Emission Factors Hub 2024",
+        "publisher": "US EPA",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "DEFRA 2024 100% mineral petrol; IPCC 2006 Vol2 Ch3 corroborates. Primary fuel-based road factor.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.diesel.per_litre",
+    "category": "transport",
+    "subcategory": "road_fuel_diesel",
+    "description": "Nigeria fuel-based Scope 1 emission factor for diesel combustion in road transport, expressed per litre",
+    "value": 2.662,
+    "unit": "kgCO2e_per_litre",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 (road vehicles, diesel oil default CO2; converted with AR5 GWP)"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "EPA_GHG_HUB_2024",
+        "title": "EPA GHG Emission Factors Hub 2024",
+        "publisher": "US EPA",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "DEFRA 2024 100% mineral diesel; IPCC 2006 Vol2 Ch3 corroborates. Primary fuel-based road factor.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.petrol.car",
+    "category": "transport",
+    "subcategory": "road_petrol_car",
+    "description": "Distance-based Scope 1 emission factor for average petrol passenger car in Nigeria",
+    "value": 0.165,
+    "unit": "kgCO2e_per_km",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 default fuel EF, applied to DEFRA 2024 fuel consumption"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+        "title": "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+        "publisher": "World Bank",
+        "year": 2013
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 average petrol car per-km factor (0.1645 kgCO2e/km) used as a Nigeria proxy, rounded to 0.165. UK fuel-consumption proxy (6.954 L/100km) is shown for reference. Flagged medium confidence because Nigeria-specific VKT/fuel-economy data is unavailable.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.diesel.car",
+    "category": "transport",
+    "subcategory": "road_diesel_car",
+    "description": "Distance-based Scope 1 emission factor for average diesel passenger car in Nigeria",
+    "value": 0.17,
+    "unit": "kgCO2e_per_km",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 default fuel EF, applied to DEFRA 2024 fuel consumption"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+        "title": "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+        "publisher": "World Bank",
+        "year": 2013
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 average diesel car per-km factor (0.16984 kgCO2e/km) used as a Nigeria proxy, rounded to 0.170. UK fuel-consumption proxy (6.316 L/100km) is shown for reference.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.petrol.motorcycle",
+    "category": "transport",
+    "subcategory": "road_petrol_motorcycle",
+    "description": "Distance-based Scope 1 emission factor for petrol motorcycle in Nigeria",
+    "value": 0.114,
+    "unit": "kgCO2e_per_km",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 default fuel EF, applied to DEFRA 2024 fuel consumption"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+        "title": "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+        "publisher": "World Bank",
+        "year": 2013
+      }
+    ],
+    "uncertainty_pct": 30,
+    "confidence": "low",
+    "methodology_note": "DEFRA 2024 average motorbike per-km factor (0.11367 kgCO2e/km) used as a Nigeria proxy, rounded to 0.114. Nigeria-specific data unavailable.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.diesel.bus",
+    "category": "transport",
+    "subcategory": "road_diesel_bus",
+    "description": "Distance-based Scope 1 emission factor for diesel bus in Nigeria, expressed per vehicle-km",
+    "value": 3.254,
+    "unit": "kgCO2e_per_km",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 default fuel EF, applied to DEFRA 2024 passenger-km factor and occupancy assumption"
+    },
+    "additional_sources": [
+      {
+        "id": "ICCT_SOOTFREE_2019",
+        "title": "Soot-Free Transport for Nigeria",
+        "publisher": "ICCT",
+        "year": 2019
+      },
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+        "title": "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+        "publisher": "World Bank",
+        "year": 2013
+      }
+    ],
+    "uncertainty_pct": 35,
+    "confidence": "low",
+    "methodology_note": "Derived from DEFRA 2024 average local bus passenger-km factor and a 30-passenger occupancy assumption to convert to vehicle-km. Highly sensitive to occupancy; flagged low confidence.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.diesel.truck.small",
+    "category": "transport",
+    "subcategory": "road_diesel_light_truck",
+    "description": "Distance-based Scope 1 emission factor for small diesel truck/van in Nigeria",
+    "value": 0.25,
+    "unit": "kgCO2e_per_km",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 default fuel EF, applied to DEFRA 2024 fuel consumption"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+        "title": "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+        "publisher": "World Bank",
+        "year": 2013
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 average diesel van per-km factor (0.25023 kgCO2e/km) used as a Nigeria proxy, rounded to 0.250. UK fuel-consumption proxy (9.306 L/100km) is shown for reference.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.transport.road.diesel.truck.heavy",
+    "category": "transport",
+    "subcategory": "road_diesel_heavy_truck",
+    "description": "Distance-based Scope 1 emission factor for heavy diesel goods vehicle in Nigeria",
+    "value": 0.873,
+    "unit": "kgCO2e_per_km",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL2_CH3",
+      "title": "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 3.2.1 default fuel EF, applied to DEFRA 2024 fuel consumption"
+    },
+    "additional_sources": [
+      {
+        "id": "DEFRA_2024_FULL",
+        "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+        "publisher": "UK DESNZ",
+        "year": 2024
+      },
+      {
+        "id": "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+        "title": "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+        "publisher": "World Bank",
+        "year": 2013
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 average diesel HGV per-km factor (0.87296 kgCO2e/km) used as a Nigeria proxy, rounded to 0.873. UK fuel-consumption proxy (32.464 L/100km) is shown for reference.",
+    "nefdb_version": "1.0.0"
   }
 ]

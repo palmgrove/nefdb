@@ -249,6 +249,13 @@ const SOURCE_REGISTRY: SourceReference[] = [
     access_date: "2026-06-19",
   },
   {
+    id: "WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013",
+    title: "Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors",
+    publisher: "World Bank",
+    year: 2013,
+    access_date: "2026-06-19",
+  },
+  {
     id: "NEFDB_RECONCILED_GENERATION_2024",
     title: "Nigeria Generation Mix Reconciled 2024",
     publisher: "NEFDB",

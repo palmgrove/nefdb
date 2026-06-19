@@ -2,7 +2,7 @@
 ## v1 Build Plan: From Raw Data to npm Publication
 
 > **Prepared:** June 2026  
-> **Status:** In progress — Phases 0–3 committed to `main`; Phase 4 next  
+> **Status:** In progress — Phases 0–4 committed to `main`; Phase 5 next  
 > **Target:** `@palmgrove/nefdb` published on npm, CC BY-SA 4.0  
 > **Maintainer:** Irenium Ltd (Palmgrove)
 
@@ -16,7 +16,7 @@
 | 1 — Grid Electricity | ✅ Complete | 15 | `feat: add Phase 1 grid electricity factors` |
 | 2 — Fuel Combustion | ✅ Complete | 16 | `feat: add Phase 2 fuel combustion and road transport factors` |
 | 3 — Domestic Aviation | ✅ Complete | 6 | `feat: add Phase 3 domestic aviation factors` |
-| 4 — Waste & Water | 🔄 Next | 8 | — |
+| 4 — Waste & Water | ✅ Complete | 8 | `feat(factors): add Phase 4 waste and water emission factors` |
 | 5 — Export + Documentation | ⏳ Pending | — | — |
 | 6 — Testing + Validation | ⏳ Pending | — | — |
 | 7 — npm Publication | ⏳ Pending | — | — |
@@ -292,27 +292,27 @@ This means:
 
 > **Aviation Methodology:** ICAO ICEC v13.1 applied to Nigeria domestic routes. Aircraft: Boeing 737-500 (dominant per NCAA 2022). Load factor: 72% (NCAA data). RF multiplier is an optional add-on field, not baked into the base value.
 
-### 5. Waste (~6 factors)
+### 5. Waste (6 factors)
 
-| Factor ID | Waste Stream | Unit | Primary Source |
-|---|---|---|---|
-| `ng.waste.msw.landfill.managed` | MSW — managed landfill | kgCO2e/tonne | IPCC 2006 Vol5 + Nigeria BUR2 |
-| `ng.waste.msw.open_dump` | MSW — open dump (dominant Nigeria method) | kgCO2e/tonne | IPCC 2006 Vol5 + Nigeria open-burning data |
-| `ng.waste.msw.open_burning` | MSW — open burning | kgCO2e/tonne | IPCC 2006 Vol5 + Nigeria open-burning data |
-| `ng.waste.organic.composting` | Organic waste — composting | kgCO2e/tonne | IPCC 2006 Vol5 |
-| `ng.waste.wastewater.domestic` | Domestic wastewater treatment | kgCO2e/person-year | IPCC 2006 Vol5 + Nigeria WASH data |
-| `ng.waste.wastewater.industrial` | Industrial wastewater treatment | kgCO2e/m3 | IPCC 2006 Vol5 |
+| Factor ID | Waste Stream | Value | Unit | Confidence | Primary Source |
+|---|---|---:|---|---|---|
+| `ng.waste.msw.landfill.managed` | MSW — managed landfill | 1,260 | kgCO2e/tonne | high | IPCC 2006 Vol5 Ch3 + NIR1 |
+| `ng.waste.msw.open_dump` | MSW — open dump (dominant Nigeria method) | 561 | kgCO2e/tonne | medium | IPCC 2006 Vol5 Ch3 + NIR1 |
+| `ng.waste.msw.open_burning` | MSW — open burning | 268 | kgCO2e/tonne | medium | IPCC 2006 Vol5 Ch5 + Nigeria open-burning factsheet |
+| `ng.waste.organic.composting` | Organic waste — composting | 176 | kgCO2e/tonne | high | IPCC 2006 Vol5 Ch4 |
+| `ng.waste.wastewater.domestic` | Domestic wastewater treatment | 0.758 | kgCO2e/m3 | medium | IPCC 2006 Vol5 Ch6 + NIR1 + Oke-Afa WWTP |
+| `ng.waste.wastewater.industrial` | Industrial wastewater treatment | 2.10 | kgCO2e/kg COD | low | IPCC 2006 Vol5 Ch6 |
 
-> **Nigeria waste context:** ~80%+ of MSW is open-dumped. Open dump factor is the most operationally relevant for most Nigerian companies. Waste composition from Nigeria BUR2: food 60%, paper 10%, plastic 8%.
+> **Nigeria waste context:** ~80%+ of MSW is open-dumped. Open dump factor is the most operationally relevant for most Nigerian companies. Waste composition used: Lagos metropolis mean (food 66%, paper 10%, plastic 14%, textiles 5%) from Procedia 2017; national composition from BUR2/NIR1 remains a gap flagged in methodology.
 
-### 6. Water (~2 factors)
+### 6. Water (2 factors)
 
-| Factor ID | Process | Unit | Primary Source |
-|---|---|---|---|
-| `ng.water.treatment.supply` | Water supply treatment — per m3 | kgCO2e/m3 | UK DEFRA 2024 (adapted) |
-| `ng.water.treatment.wastewater` | Wastewater treatment — per m3 | kgCO2e/m3 | IPCC 2006 Vol5 + UK DEFRA 2024 |
+| Factor ID | Process | Value | Unit | Confidence | Primary Source |
+|---|---|---:|---|---|---|
+| `ng.water.treatment.supply` | Water supply treatment — per m3 | 0.103 | kgCO2e/m3 | medium | UK DEFRA 2024 + NEFDB Nigeria grid EF |
+| `ng.water.treatment.wastewater` | Wastewater treatment — per m3 | 0.124 | kgCO2e/m3 | medium | UK DEFRA 2024 + NEFDB Nigeria grid EF |
 
-**Total v1.0 factor count: ~51**
+**Total v1.0 factor count: 45**
 
 ---
 
@@ -411,6 +411,14 @@ nefdb.fuel.lpg();                 // -> { per_litre, per_kg }
 nefdb.transport.road("petrol", "car");    // -> EF per km
 nefdb.aviation.route("LOS", "ABV");       // -> EF per passenger-km
 nefdb.aviation.route("LOS", "ABV", { rf: true }); // -> with radiative forcing
+nefdb.waste.msw("landfill_managed");        // -> 1,260 kgCO2e/tonne
+nefdb.waste.msw("open_dump");               // -> 561 kgCO2e/tonne
+nefdb.waste.msw("open_burning");            // -> 268 kgCO2e/tonne
+nefdb.waste.composting();                   // -> 176 kgCO2e/tonne
+nefdb.waste.wastewater("domestic");         // -> 0.758 kgCO2e/m3
+nefdb.waste.wastewater("industrial");       // -> 2.10 kgCO2e/kg COD
+nefdb.water.supply();                       // -> 0.103 kgCO2e/m3
+nefdb.water.wastewater();                   // -> 0.124 kgCO2e/m3
 
 // ---- LIST ALL ----
 nefdb.list();                     // -> EmissionFactor[] (minimal fields)
@@ -535,26 +543,21 @@ Apply ICAO ICEC v13.1 methodology to Nigeria domestic routes:
 
 ---
 
-### Phase 4 — Waste & Water Factors (Day 7)
+### Phase 4 — Waste & Water Factors (Completed)
 
-**4a. Waste — 0.75 day**
-- Use IPCC FOD model (XLS we have) with Nigeria-specific inputs:
-  - Waste composition from Nigeria BUR2: food 60%, paper 10%, plastic 8%, other 22%
-  - Climate zone: tropical Nigeria
-  - Methane correction factor: 0.6 for open dump (unmanaged open site, IPCC default)
-- Open burning from IPCC Vol5 Table 5.3 + Nigeria open-burning factsheet
-- Cross-check against Nigeria BUR2 reported waste sector emissions per tonne
-- Populate 6 waste factors
+**4a. Waste — 6 factors**
+- Solid waste disposal (managed landfill + open dump): IPCC 2006 Vol5 Ch3 Tier 1 mass-balance potential with Lagos metropolis mean MSW composition (food 66%, paper 10%, plastic 14%, textiles 5%, other 5%); MCF 1.0/0.4, DOCf 0.5, F 0.5.
+- Open burning: IPCC 2006 Vol5 Ch5 Table 5.7 defaults (fossil CO2 33 kg/t, CH4 6.5 kg/t, N2O 0.2 kg/t).
+- Composting: IPCC 2006 Vol5 Ch4 Table 4.1 defaults (CH4 4 kg/t, N2O 0.24 kg/t).
+- Domestic wastewater: Bo=0.6, Nigeria-weighted MCF=0.354 derived from NIR1 2017 emissions/TOW, BOD=127.5 mg/L from Oke-Afa WWTP.
+- Industrial wastewater: Bo=0.25 kg CH4/kg COD, conservative MCF=0.3.
 
-**4b. Water — 0.25 day**
-- IPCC Vol5 Ch6 + UK DEFRA 2024
-- Nigeria classified as "developing" → apply IPCC BOD-based calculation
-- Populate 2 water factors
-- Write `methodology/waste_water.md`
+**4b. Water — 2 factors**
+- Water supply and wastewater treatment: UK DEFRA 2024 water factors converted to electricity intensity (kWh/m3), then multiplied by Nigeria grid `ng.grid.national.location.2024` (0.138611 kgCO2e/kWh).
 
-**Documentation for this phase:** IPCC FOD model inputs, Nigeria waste composition sources, BOD/TOW assumptions, and water-treatment methodology go into `methodology/progressive/phase_04_waste_water.md`.
+**Documentation for this phase:** IPCC FOD model inputs, Nigeria waste composition sources, BOD/TOW assumptions, and water-treatment methodology are in `methodology/progressive/phase_04_waste_water.md`. Calculation files live in `datasets/waste_water/derived/`.
 
-**Verify:** All 8 waste/water factors present, validation passes.
+**Verify:** All 8 waste/water factors present; `bun test`, `bun run validate`, `bun run build`, `bun run build:csv`, `bun run build:json` all pass. Independent validation subagent returned ACCEPT.
 
 ---
 
@@ -644,7 +647,7 @@ Every derived factor has a numbered step-by-step derivation in methodology/*.md.
 
 ---
 
-## Source Registry (v1 Canonical — 32 Sources)
+## Source Registry (v1 Canonical — 48 Sources)
 
 | ID | Title | Publisher | Year | Category |
 |---|---|---|---|---|
@@ -683,6 +686,14 @@ Every derived factor has a numbered step-by-step derivation in methodology/*.md.
 | `IRENA_REMAP_2023` | Renewable Energy Roadmap: Nigeria (IRENA REMap) | IRENA | 2023 | Grid context |
 | `IPCC_WASTE_FOD` | IPCC FOD Model for MSW | IPCC | 2006 | Waste CH4 calculation |
 | `NIGERIA_OPEN_BURNING` | Nigeria Open Burning Factsheet | regulatory_mrv datasets | 2021 | Waste combustion |
+| `IPCC_2006_VOL5_CH3` | IPCC 2006 Guidelines Vol 5 Ch 3 Solid Waste Disposal | IPCC | 2006 | Landfill/open dump CH4 |
+| `IPCC_2006_VOL5_CH4` | IPCC 2006 Guidelines Vol 5 Ch 4 Biological Treatment of Solid Waste | IPCC | 2006 | Composting EF |
+| `IPCC_2006_VOL5_CH5` | IPCC 2006 Guidelines Vol 5 Ch 5 Incineration and Open Burning of Waste | IPCC | 2006 | Open burning EF |
+| `IPCC_2006_VOL5_CH6` | IPCC 2006 Guidelines Vol 5 Ch 6 Wastewater Treatment and Discharge | IPCC | 2006 | Wastewater CH4 |
+| `WHO_UNICEF_JMP_2021` | WHO/UNICEF Joint Monitoring Programme WASHNORM II Nigeria | WHO / UNICEF | 2021 | Sanitation access |
+| `OKE_AFA_WWTP_2021` | Oke-Afa Wastewater Treatment Plant Characterisation Study | Lagos State Wastewater Management Office / NEFDB | 2021 | Wastewater BOD proxy |
+| `HYDROWASTE_V10` | HydroWASTE v1.0 Global Database of Waste Water Treatment Plants | Statsgo / McGill University | 2022 | WWTP locations/capacity |
+| `WB_WHATAWASTE_3_0` | What a Waste 3.0: A Global Snapshot of Solid Waste Management to 2050 | World Bank | 2023 | Global MSW benchmarks |
 | `UNFCCC_CDM_TOOL07` | UNFCCC CDM Methodological Tool 07 v7.0 | UNFCCC | 2021 | Grid EF methodology |
 
 ---
@@ -743,12 +754,12 @@ Explicitly out of scope for v1.0:
 | 2–4 | Phase 1 — Grid Electricity | 15 grid EFs (national + location-based + 11 DisCos) |
 | 5 | Phase 2 — Fuel Combustion | 16 combustion EFs (stationary + mobile) |
 | 6 | Phase 3 — Aviation | 6 domestic aviation EFs + RF multiplier |
-| 7 | Phase 4 — Waste & Water | 8 waste/water EFs |
+| 7 | Phase 4 — Waste & Water | 8 waste/water EFs — complete, validated, pushed |
 | 8 | Phase 5 — Export + Docs | CSV, JSON, methodology PDF, README |
 | 9 | Phase 6 — Testing | Full test suite, spot-checks, validation pass |
 | 10 | Phase 7 — Publish | `@palmgrove/nefdb@1.0.0` live on npm + GitHub release + FRC/NGX outreach |
 
-**Total factors: ~51 | Sources cited: 35+ | Implementation: 10 working days**
+**Total factors: 45 | Sources cited: 48 | Implementation: 10 working days**
 
 ---
 
@@ -761,7 +772,7 @@ Before Phase 0 begins, extract these values from documents we already have:
 | Nigeria generation by fuel type (2005–2024, plant-level) | `datasets/grid_electricity/energy_databank_generation_by_plant.csv` + `datasets/grid_electricity/ELECTRICITY_DATA_2015-Q2_2024.xlsx` | **[RESOLVED — Phase 1 enrichment]** Reconciled 2020–2024 generation-by-fuel; corrected 2020 hydro unit errors using NEDB plant records; adopted 2024 NERC/Guardian total and hydro. Values used in `ng.grid.national.location.2024` and all `ng.grid.disco.*.2024` factors. |
 | IPCC 2006 NCVs — diesel, petrol, LPG, CNG, natural gas | `docs/international_ef_databases/IPCC2006_Vol2_V2_2_Ch2_Stationary_Combustion.md` | Table 2.2 |
 | NCAA 2022 domestic fleet type distribution | `datasets/transport_aviation/ncaa_executive_summary_2022.pptx` | Manual review of slides |
-| Nigeria waste composition (food/paper/plastic %) | `docs/waste_water/NIGERIA BUR 2 - Second Biennial Update Report (BUR2).md` | Waste chapter |
+| Nigeria waste composition | `docs/waste_water/procedia_lagos_waste_composition_2017.md` + `docs/waste_water/ahk_lagos_waste_resource_mapping_2023.md` + `docs/waste_water/Environ-09-02-11.md` | **[RESOLVED — Phase 4]** Lagos metropolis mean composition used as best-available urban proxy; Environ 2022 provides national urban combustible-waste estimate. National-scale BUR2/NIR1 composition table remains a gap flagged in methodology. |
 | Nigeria genset efficiency in field | `docs/fuel_combustion/rank15_Somorin_etal_RE2017_Life_cycle_assessment_of_self_generated_electricity_in_Nigeria.md` | Results section |
 | ICCT fuel efficiency for West Africa vehicles | `docs/fuel_combustion/rank6_ICCT_Sootfree_transport_20190826.md` | Nigeria section |
 | Road VKT / annual-km defaults | `docs/transport_aviation/vkt_gap_verdict.md` + `docs/transport_aviation/vkt_web_research.md` | Use World Bank (2013) annual-km defaults for optional distance-based factors; flag `confidence=medium` |
@@ -786,7 +797,7 @@ For v1: focus on **npm + CSV**. The CSV is the great equaliser — any Nigerian 
 
 ## Success Criteria for v1.0
 
-- [ ] ~51 factors published with zero unsourced entries
+- [ ] 45 factors published with zero unsourced entries
 - [ ] National grid EF reproducible by any qualified engineer from methodology PDF alone
 - [ ] All 11 DisCo EFs covered, flagged medium confidence, methodology documented
 - [ ] Diesel kWh: two variants (rated/field), Somorin 2017 cited, field is default recommended

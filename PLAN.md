@@ -500,8 +500,9 @@ Apply ICAO ICEC v13.1 methodology to Nigeria domestic routes:
 - Write `README.md` — public-facing with quickstart examples
 - Write `CHANGELOG.md` — v1.0.0 entry with full factor list
 - Audit: every factor in CSV has populated source_url or source_title
+- **Publish source datasets and docs to Cloudflare R2:** follow `PUBLISH_DATASETS.md`. Start with the stable domains (grid_electricity first), upload via script, deploy the download Worker, and add the public URL to `README.md`.
 
-**Documentation for this phase:** build scripts, export validation results, final `METHODOLOGY.md`/`README.md`/`CHANGELOG.md` drafts, and PDF-generation steps are recorded in `methodology/progressive/phase_05_export_docs.md`.
+**Documentation for this phase:** build scripts, export validation results, final `METHODOLOGY.md`/`README.md`/`CHANGELOG.md` drafts, PDF-generation steps, and R2 publication notes are recorded in `methodology/progressive/phase_05_export_docs.md`.
 
 ---
 

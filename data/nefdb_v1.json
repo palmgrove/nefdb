@@ -1502,5 +1502,265 @@
     "confidence": "medium",
     "methodology_note": "DEFRA 2024 average diesel HGV per-km factor (0.87296 kgCO2e/km) used as a Nigeria proxy, rounded to 0.873. UK fuel-consumption proxy (32.464 L/100km) is shown for reference.",
     "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.waste.msw.landfill.managed",
+    "category": "waste",
+    "subcategory": "msw_landfill_managed",
+    "description": "Scope 1 emission factor for managed municipal solid waste (MSW) landfill disposal in Nigeria, per tonne of waste",
+    "value": 1260,
+    "unit": "kgCO2e_per_tonne",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL5_CH3",
+      "title": "IPCC 2006 Guidelines Vol 5 Ch 3 Solid Waste Disposal",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Tier 1 mass-balance potential (Eq. 3.1–3.5)"
+    },
+    "additional_sources": [
+      {
+        "id": "NIGERIA_NIR1",
+        "title": "Nigeria First National Inventory Report 2000-2017",
+        "publisher": "Federal Republic of Nigeria",
+        "year": 2021
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "high",
+    "methodology_note": "IPCC 2006 Vol5 Ch3 Tier 1 mass-balance potential with Lagos metropolis mean composition, DOCf=0.5, F=0.5, OX=0.1, MCF=1.0; 1,262 kgCO2e/t → 1,260. Olusosun deep-dump MCF=0.8 is noted as a site-specific cross-check.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.waste.msw.open_dump",
+    "category": "waste",
+    "subcategory": "msw_open_dump",
+    "description": "Scope 1 emission factor for unmanaged MSW open dumping in Nigeria, per tonne of waste",
+    "value": 561,
+    "unit": "kgCO2e_per_tonne",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL5_CH3",
+      "title": "IPCC 2006 Guidelines Vol 5 Ch 3 Solid Waste Disposal",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Tier 1 mass-balance potential; unmanaged deep dump MCF default"
+    },
+    "additional_sources": [
+      {
+        "id": "NIGERIA_NIR1",
+        "title": "Nigeria First National Inventory Report 2000-2017",
+        "publisher": "Federal Republic of Nigeria",
+        "year": 2021
+      }
+    ],
+    "uncertainty_pct": 25,
+    "confidence": "medium",
+    "methodology_note": "Same composition as managed landfill; OX=0, MCF=0.4 (NIR1 / IPCC default for unmanaged deep dump).",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.waste.msw.open_burning",
+    "category": "waste",
+    "subcategory": "msw_open_burning",
+    "description": "Scope 1 emission factor for MSW open burning in Nigeria, per tonne of waste burned",
+    "value": 268,
+    "unit": "kgCO2e_per_tonne",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL5_CH5",
+      "title": "IPCC 2006 Guidelines Vol 5 Ch 5 Incineration and Open Burning of Waste",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 5.7 (open burning defaults)"
+    },
+    "additional_sources": [
+      {
+        "id": "NIGERIA_OPEN_BURNING",
+        "title": "Nigeria Open Burning Factsheet",
+        "publisher": "regulatory_mrv datasets",
+        "year": 2021
+      }
+    ],
+    "uncertainty_pct": 35,
+    "confidence": "medium",
+    "methodology_note": "IPCC 2006 Vol5 Ch5 Table 5.7 defaults: fossil CO2=33 kg/t, CH4=6.5 kg/t, N2O=0.2 kg/t; CO2e = 33 + 6.5×28 + 0.2×265 = 268.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.waste.organic.composting",
+    "category": "waste",
+    "subcategory": "organic_composting",
+    "description": "Scope 1 emission factor for aerobic composting of organic waste in Nigeria, per tonne of input waste",
+    "value": 176,
+    "unit": "kgCO2e_per_tonne",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL5_CH4",
+      "title": "IPCC 2006 Guidelines Vol 5 Ch 4 Biological Treatment of Solid Waste",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Table 4.1 (CH4 and N2O defaults)"
+    },
+    "uncertainty_pct": 25,
+    "confidence": "high",
+    "methodology_note": "IPCC 2006 Vol5 Ch4 Table 4.1: CH4=4 kg/t, N2O=0.24 kg/t.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.waste.wastewater.domestic",
+    "category": "waste",
+    "subcategory": "wastewater_domestic",
+    "description": "Scope 1 emission factor for domestic wastewater treatment and discharge in Nigeria, per cubic metre of wastewater",
+    "value": 0.758,
+    "unit": "kgCO2e_per_m3",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2017,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL5_CH6",
+      "title": "IPCC 2006 Guidelines Vol 5 Ch 6 Wastewater Treatment and Discharge",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Eq. 6.1–6.3 (domestic wastewater Tier 1)"
+    },
+    "additional_sources": [
+      {
+        "id": "NIGERIA_NIR1",
+        "title": "Nigeria First National Inventory Report 2000-2017",
+        "publisher": "Federal Republic of Nigeria",
+        "year": 2021
+      },
+      {
+        "id": "OKE_AFA_WWTP_2021",
+        "title": "Oke-Afa Wastewater Treatment Plant Characterisation Study",
+        "publisher": "Lagos State Wastewater Management Office / NEFDB",
+        "year": 2021
+      }
+    ],
+    "uncertainty_pct": 30,
+    "confidence": "medium",
+    "methodology_note": "Bo=0.6 kg CH4/kg BOD; weighted national MCF=0.354 derived from NIR1 2017 emissions/TOW; influent BOD 0.1275 kg/m3 from Oke-Afa WWTP; per m3 = 0.6×0.354×0.1275×28 = 0.758.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.waste.wastewater.industrial",
+    "category": "waste",
+    "subcategory": "wastewater_industrial",
+    "description": "Scope 1 emission factor for industrial wastewater treatment and discharge in Nigeria, per kilogram of COD removed/treated",
+    "value": 2.1,
+    "unit": "kgCO2e_per_kg",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 1,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "IPCC_2006_VOL5_CH6",
+      "title": "IPCC 2006 Guidelines Vol 5 Ch 6 Wastewater Treatment and Discharge",
+      "publisher": "IPCC",
+      "year": 2006,
+      "page": "Eq. 6.3 (industrial wastewater Tier 1)"
+    },
+    "uncertainty_pct": 40,
+    "confidence": "low",
+    "methodology_note": "Bo=0.25 kg CH4/kg COD, conservative MCF=0.3; per kg COD = 0.25×0.3×28 = 2.10. The unit kgCO2e_per_kg is per kilogram of COD.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.water.treatment.supply",
+    "category": "water",
+    "subcategory": "water_supply",
+    "description": "Scope 2 emission factor for treated water supply in Nigeria, per cubic metre supplied",
+    "value": 0.103,
+    "unit": "kgCO2e_per_m3",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "DEFRA_2024_FULL",
+      "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+      "publisher": "UK DESNZ",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "NEFDB_RECONCILED_GENERATION_2024",
+        "title": "Nigeria Generation Mix Reconciled 2024",
+        "publisher": "NEFDB",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 30,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 water supply factor 0.15311 kgCO2e/m3 ÷ UK grid 0.20705 kgCO2e/kWh → 0.739 kWh/m3; × Nigeria grid ng.grid.national.location.2024 (0.138611) → 0.103.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.water.treatment.wastewater",
+    "category": "water",
+    "subcategory": "water_wastewater_treatment",
+    "description": "Scope 2 emission factor for wastewater treatment services in Nigeria, per cubic metre treated",
+    "value": 0.124,
+    "unit": "kgCO2e_per_m3",
+    "gas": null,
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2024,
+    "published_year": 2026,
+    "country": "NG",
+    "region": "NG",
+    "source": {
+      "id": "DEFRA_2024_FULL",
+      "title": "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+      "publisher": "UK DESNZ",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "NEFDB_RECONCILED_GENERATION_2024",
+        "title": "Nigeria Generation Mix Reconciled 2024",
+        "publisher": "NEFDB",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 30,
+    "confidence": "medium",
+    "methodology_note": "DEFRA 2024 water treatment factor 0.18574 kgCO2e/m3 ÷ UK grid 0.20705 → 0.897 kWh/m3; × Nigeria grid 0.138611 → 0.124.",
+    "nefdb_version": "1.0.0"
   }
 ]

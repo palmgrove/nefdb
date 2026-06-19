@@ -11,7 +11,7 @@ __pycache__/
 *.pyo
 
 # Ad-hoc data-collection / extraction scripts and helpers used during pre-build
-# Proper package build scripts will live in scripts/ and WILL be tracked.
+# Proper package build scripts will live in scripts/ and WILL be tracked (TypeScript only).
 convert_*.py
 convert_remaining.json
 download_*.ps1
@@ -23,6 +23,7 @@ grep_*.py
 inspect_*.py
 inspect_*.txt
 search_*.py
+scripts/*.py
 
 # OS files
 .DS_Store

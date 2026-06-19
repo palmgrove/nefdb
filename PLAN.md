@@ -171,20 +171,20 @@ This means:
 | `ng.grid.national.om.2021` | Nigeria national grid — Operating Margin EF | Direct from WAPP ASB0034-2021 | UNFCCC ASB0034-2021 |
 | `ng.grid.national.bm.2021` | Nigeria national grid — Build Margin EF | Direct from WAPP ASB0034-2021 | UNFCCC ASB0034-2021 |
 | `ng.grid.national.cm.2021` | Nigeria national grid — Combined Margin EF | Direct from WAPP ASB0034-2021 | UNFCCC ASB0034-2021 |
-| `ng.grid.national.location.2024` | Nigeria national grid — Location-based (Scope 2) | Derived from Energy Databank generation-by-plant + IPCC fuel EFs | Energy Data Bank + IPCC 2006 |
-| `ng.grid.disco.aedc.2023` | Abuja AEDC DisCo grid EF | Derived from NBS Q4 2023 billing + plant-by-plant generation mix | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.bedc.2023` | Benin BEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.ekedc.2023` | Eko EKEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.eedc.2023` | Enugu EEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.ibedc.2023` | Ibadan IBEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.iedc.2023` | Ikeja IEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.jedc.2023` | Jos JEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.kdedc.2023` | Kaduna KDEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.kedc.2023` | Kano KEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.pedc.2023` | Port Harcourt PEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
-| `ng.grid.disco.yedc.2023` | Yola YEDC DisCo grid EF | Same methodology | NBS Q4 2023 + Energy Data Bank |
+| `ng.grid.national.location.2024` | Nigeria national grid — Location-based (Scope 2) | Derived from NEFDB reconciled 2024 generation mix + IPCC fuel EFs | NERC/Guardian 2024 + NEFDB reconciliation + IPCC 2006 |
+| `ng.grid.disco.aedc.2024` | Abuja AEDC DisCo grid EF | Derived from NBS Q2 2024 billing + 2024 regional generation-mix adjustment | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.bedc.2024` | Benin BEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.ekedc.2024` | Eko EKEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.eedc.2024` | Enugu EEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.ibedc.2024` | Ibadan IBEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.iedc.2024` | Ikeja IEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.jedc.2024` | Jos JEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.kdedc.2024` | Kaduna KDEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.kedc.2024` | Kano KEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.pedc.2024` | Port Harcourt PEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
+| `ng.grid.disco.yedc.2024` | Yola YEDC DisCo grid EF | Same methodology | NBS Q2 2024 + NERC/Guardian 2024 + NEFDB reconciliation |
 
-> **DisCo EF Methodology:** No off-the-shelf DisCo EF table exists anywhere. Approach: take each DisCo share of national billed energy (NBS data), weight by regional generation mix derived from plant-level Energy Databank records (hydro-heavy in north/middle-belt, gas-heavy in south), compute EF per DisCo. Confidence: **medium** (improved by plant-level granularity). Flagged transparently with +/-20% uncertainty.
+> **DisCo EF Methodology:** No off-the-shelf DisCo EF table exists anywhere. Approach: take each DisCo's share of Q2 2024 national billed energy (NBS data), adjust the 2024 national gas/hydro mix by territory (more hydro in the north, more gas in the south), and compute EF per DisCo. Confidence: **medium–high** (high confidence in the 2024 NERC/Guardian national hydro share; medium confidence in the territorial allocation). Flagged transparently with ±20% uncertainty.
 
 ### 2. Fuel Combustion — Stationary (~8 factors)
 
@@ -689,7 +689,7 @@ Before Phase 0 begins, extract these values from documents we already have:
 
 | Value Needed | Source File | Action |
 |---|---|---|
-| Nigeria generation by fuel type (2005–2024, plant-level) | `datasets/grid_electricity/energy_databank_generation_by_plant.csv` + `datasets/grid_electricity/ELECTRICITY_DATA_2015-Q2_2024.xlsx` | **[RESOLVED — Phase 1]** Aggregated to 2020 generation-by-fuel; applied `ELPD_NESCO_GEN` ÷1,000 correction (see hydro verdict). Values used in `ng.grid.national.location.2020` and DisCo EFs. |
+| Nigeria generation by fuel type (2005–2024, plant-level) | `datasets/grid_electricity/energy_databank_generation_by_plant.csv` + `datasets/grid_electricity/ELECTRICITY_DATA_2015-Q2_2024.xlsx` | **[RESOLVED — Phase 1 enrichment]** Reconciled 2020–2024 generation-by-fuel; corrected 2020 hydro unit errors using NEDB plant records; adopted 2024 NERC/Guardian total and hydro. Values used in `ng.grid.national.location.2024` and all `ng.grid.disco.*.2024` factors. |
 | IPCC 2006 NCVs — diesel, petrol, LPG, CNG, natural gas | `docs/international_ef_databases/IPCC2006_Vol2_V2_2_Ch2_Stationary_Combustion.md` | Table 2.2 |
 | NCAA 2022 domestic fleet type distribution | `datasets/transport_aviation/ncaa_executive_summary_2022.pptx` | Manual review of slides |
 | Nigeria waste composition (food/paper/plastic %) | `docs/waste_water/NIGERIA BUR 2 - Second Biennial Update Report (BUR2).md` | Waste chapter |

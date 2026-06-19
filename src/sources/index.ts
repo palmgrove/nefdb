@@ -248,6 +248,34 @@ const SOURCE_REGISTRY: SourceReference[] = [
     year: 2021,
     access_date: "2026-06-19",
   },
+  {
+    id: "NEFDB_RECONCILED_GENERATION_2024",
+    title: "Nigeria Generation Mix Reconciled 2024",
+    publisher: "NEFDB",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NIGERIA_GENERATION_MIX_2024",
+    title: "Nigeria Generation Mix 2024 (NERC / Guardian Nigeria / NEFDB reconciled)",
+    publisher: "NERC / NEFDB",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "GUARDIAN_NERC_2024",
+    title: "Guardian Nigeria summary of NERC 2024 annual statistics",
+    publisher: "Guardian Nigeria / NERC",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "EMBER_OWID_2024",
+    title: "Ember Yearly Electricity Data / Our World in Data energy dataset",
+    publisher: "Ember / OWID",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
 ];
 
 export const sourcesById: Record<string, SourceReference> = {};

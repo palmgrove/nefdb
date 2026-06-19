@@ -1,0 +1,262 @@
+import type { SourceReference } from "../types.ts";
+
+export type { SourceReference };
+
+const SOURCE_REGISTRY: SourceReference[] = [
+  {
+    id: "WAPP_ASB0034_2021",
+    title: "Standardized Baseline for WAPP including Nigeria (ASB0034-2021)",
+    publisher: "UNFCCC / WAPP",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "WAPP_ASB0034_ASSESSMENT",
+    title: "Assessment Report ASU006 ASB0034 WAPP",
+    publisher: "UNFCCC / WAPP",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NERC_2024_ANNUAL",
+    title: "NERC 2024 Annual Report",
+    publisher: "NERC",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NERC_2023_ANNUAL",
+    title: "NERC 2023 Annual Report",
+    publisher: "NERC",
+    year: 2023,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NERC_2022_ANNUAL",
+    title: "NERC 2022 Annual Report",
+    publisher: "NERC",
+    year: 2022,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NERC_2024_Q4",
+    title: "NERC Quarterly Report Q4 2024",
+    publisher: "NERC",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NBS_ELECTRICITY_Q4_2023",
+    title: "Nigeria Electricity Report Q4 2023",
+    publisher: "NBS",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+    title: "Nigeria Electricity Data 2015–Q2 2024",
+    publisher: "NBS",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "ENERGY_DATABANK_GENERATION",
+    title: "Nigerian Energy Data Bank — Power Plant Generation Statistics",
+    publisher: "Federal Ministry of Energy / Energy Data Bank",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IGES_GRID_EF_V11_7_20260309",
+    title: "IGES List of Grid Emission Factors v11.7",
+    publisher: "IGES",
+    year: 2026,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IPCC_2006_VOL2_CH2",
+    title: "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+    publisher: "IPCC",
+    year: 2006,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IPCC_2006_VOL2_CH3",
+    title: "IPCC 2006 Guidelines Vol 2 Ch 3 Mobile Combustion",
+    publisher: "IPCC",
+    year: 2006,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IPCC_2006_VOL5",
+    title: "IPCC 2006 Guidelines Vol 5 Waste",
+    publisher: "IPCC",
+    year: 2006,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IPCC_2019_REFINEMENTS",
+    title: "2019 Refinement to IPCC 2006 Guidelines",
+    publisher: "IPCC",
+    year: 2019,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "DEFRA_2024_FULL",
+    title: "UK DESNZ/DEFRA 2024 GHG Conversion Factors Full Set",
+    publisher: "UK DESNZ",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "DEFRA_2026_METHODOLOGY",
+    title: "DESNZ 2026 GHG Conversion Factors Methodology",
+    publisher: "UK DESNZ",
+    year: 2026,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "EPA_GHG_HUB_2024",
+    title: "EPA GHG Emission Factors Hub 2024",
+    publisher: "US EPA",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "GHG_PROTOCOL_CORPORATE",
+    title: "GHG Protocol Corporate Standard (Revised)",
+    publisher: "WRI / WBCSD",
+    year: 2015,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "GHG_PROTOCOL_SCOPE2",
+    title: "GHG Protocol Scope 2 Guidance",
+    publisher: "WRI / WBCSD",
+    year: 2015,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "ICAO_ICEC_V13",
+    title: "ICAO Carbon Emissions Calculator Methodology v13.1",
+    publisher: "ICAO",
+    year: 2023,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "LEE_ET_AL_2021",
+    title: "Contribution of global aviation to anthropogenic climate forcing",
+    publisher: "Atmospheric Environment",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NCAA_EXEC_2022",
+    title: "NCAA Executive Summary Jan-Dec 2022",
+    publisher: "NCAA",
+    year: 2023,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "ICCT_SOOTFREE_2019",
+    title: "Soot-Free Transport for Nigeria",
+    publisher: "ICCT",
+    year: 2019,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "WB_LAGOS_AIR_2021",
+    title: "Lagos Air Quality Management (World Bank)",
+    publisher: "World Bank",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NESREA_VEH_2011",
+    title: "National Environmental (Vehicular) Regulations 2011",
+    publisher: "NESREA",
+    year: 2011,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NNPC_STATS_2023",
+    title: "NNPC Annual Statistics Bulletin S3",
+    publisher: "NNPC",
+    year: 2023,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "SOMORIN_2017",
+    title: "Life cycle assessment of self-generated electricity in Nigeria",
+    publisher: "Somorin et al., Renewable Energy",
+    year: 2017,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NIGERIA_BUR2",
+    title: "Nigeria Second Biennial Update Report to UNFCCC",
+    publisher: "Federal Republic of Nigeria",
+    year: 2022,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NIGERIA_BTR1",
+    title: "Nigeria First Biennial Transparency Report",
+    publisher: "Federal Republic of Nigeria",
+    year: 2024,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NIGERIA_NIR1",
+    title: "Nigeria First National Inventory Report 2000-2017",
+    publisher: "Federal Republic of Nigeria",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "EIA_NIGERIA_2025",
+    title: "Nigeria Country Analysis Brief",
+    publisher: "US EIA",
+    year: 2025,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IRENA_REMAP_2023",
+    title: "Renewable Energy Roadmap: Nigeria (IRENA REMap)",
+    publisher: "IRENA",
+    year: 2023,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "IPCC_WASTE_FOD",
+    title: "IPCC FOD Model for MSW",
+    publisher: "IPCC",
+    year: 2006,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "NIGERIA_OPEN_BURNING",
+    title: "Nigeria Open Burning Factsheet",
+    publisher: "regulatory_mrv datasets",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+  {
+    id: "UNFCCC_CDM_TOOL07",
+    title: "UNFCCC CDM Methodological Tool 07 v7.0",
+    publisher: "UNFCCC",
+    year: 2021,
+    access_date: "2026-06-19",
+  },
+];
+
+export const sourcesById: Record<string, SourceReference> = {};
+for (const source of SOURCE_REGISTRY) {
+  sourcesById[source.id] = source;
+}
+
+export const allSources: SourceReference[] = SOURCE_REGISTRY;
+
+export function getSourceById(id: string): SourceReference | undefined {
+  return sourcesById[id];
+}

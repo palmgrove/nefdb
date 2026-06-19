@@ -1,0 +1,51 @@
+{
+  "name": "@palmgrove/nefdb",
+  "version": "1.0.0",
+  "description": "Nigeria Emission Factor Database — the first open, versioned emission factor database for Nigerian operations",
+  "keywords": [
+    "nigeria",
+    "emission-factors",
+    "ghg",
+    "carbon",
+    "sustainability",
+    "esg",
+    "scope1",
+    "scope2"
+  ],
+  "homepage": "https://github.com/palmgrove/nefdb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/palmgrove/nefdb.git"
+  },
+  "license": "CC-BY-SA-4.0",
+  "author": "Irenium Ltd <hello@palmgrove.ng>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./data/json": "./data/nefdb_v1.json",
+    "./data/csv": "./data/nefdb_v1.csv"
+  },
+  "files": [
+    "dist/",
+    "data/",
+    "README.md",
+    "METHODOLOGY.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outfile dist/index.js --format esm --target node && bun build src/index.ts --outfile dist/index.cjs --format cjs --target node",
+    "build:csv": "bun run scripts/build_csv.ts",
+    "build:json": "bun run scripts/build_json.ts",
+    "validate": "bun run scripts/validate.ts",
+    "test": "bun test",
+    "prepublishOnly": "bun run validate && bun run test && bun run build && bun run build:csv && bun run build:json"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  }
+}

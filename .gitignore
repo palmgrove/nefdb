@@ -36,3 +36,12 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local

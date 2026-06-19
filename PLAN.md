@@ -689,7 +689,7 @@ Before Phase 0 begins, extract these values from documents we already have:
 
 | Value Needed | Source File | Action |
 |---|---|---|
-| Nigeria generation by fuel type (2005–2024, plant-level) | `datasets/grid_electricity/energy_databank_generation_by_plant.csv` + `datasets/grid_electricity/ELECTRICITY_DATA_2015-Q2_2024.xlsx` | Aggregate by fuel/type; apply `ELPD_NESCO_GEN` ÷1,000 correction (see hydro verdict) |
+| Nigeria generation by fuel type (2005–2024, plant-level) | `datasets/grid_electricity/energy_databank_generation_by_plant.csv` + `datasets/grid_electricity/ELECTRICITY_DATA_2015-Q2_2024.xlsx` | **[RESOLVED — Phase 1]** Aggregated to 2020 generation-by-fuel; applied `ELPD_NESCO_GEN` ÷1,000 correction (see hydro verdict). Values used in `ng.grid.national.location.2020` and DisCo EFs. |
 | IPCC 2006 NCVs — diesel, petrol, LPG, CNG, natural gas | `docs/international_ef_databases/IPCC2006_Vol2_V2_2_Ch2_Stationary_Combustion.md` | Table 2.2 |
 | NCAA 2022 domestic fleet type distribution | `datasets/transport_aviation/ncaa_executive_summary_2022.pptx` | Manual review of slides |
 | Nigeria waste composition (food/paper/plastic %) | `docs/waste_water/NIGERIA BUR 2 - Second Biennial Update Report (BUR2).md` | Waste chapter |

@@ -1,1 +1,663 @@
-[]
+[
+  {
+    "id": "ng.grid.national.om.2021",
+    "category": "grid_electricity",
+    "subcategory": "national_grid_operating_margin",
+    "description": "West African Power Pool (WAPP) grid operating margin CO2 emission factor, applicable to Nigeria as a WAPP member country",
+    "value": 0.578,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.578,
+      "CH4": 0,
+      "N2O": 0
+    },
+    "gwp_basis": "AR6",
+    "scope": 2,
+    "data_year": 2019,
+    "published_year": 2021,
+    "country": "NG",
+    "region": "WAPP",
+    "source": {
+      "id": "WAPP_ASB0034_2021",
+      "title": "Standardized Baseline for WAPP including Nigeria (ASB0034-2021)",
+      "publisher": "UNFCCC / WAPP",
+      "year": 2021,
+      "page": "Section 7, Table 1"
+    },
+    "additional_sources": [
+      {
+        "id": "WAPP_ASB0034_ASSESSMENT",
+        "title": "Assessment Report ASU006 ASB0034 WAPP",
+        "publisher": "UNFCCC / WAPP",
+        "year": 2021,
+        "page": "Section B, Step 4"
+      },
+      {
+        "id": "UNFCCC_CDM_TOOL07",
+        "title": "UNFCCC CDM Methodological Tool 07 v7.0",
+        "publisher": "UNFCCC",
+        "year": 2021,
+        "page": "Section 6.4.1, Simple OM"
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "Operating margin extracted directly from ASB0034-2021 Table 1 as 0.578 tCO2/MWh. Unit conversion to kgCO2e/kWh is 1:1 because 1 tCO2/MWh equals 1 kgCO2/kWh. The OM is a 2017-2019 generation-weighted average using the simple operating margin method; low-cost/must-run generation was below 50% of total generation.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.national.bm.2021",
+    "category": "grid_electricity",
+    "subcategory": "national_grid_build_margin",
+    "description": "West African Power Pool (WAPP) grid build margin CO2 emission factor, applicable to Nigeria as a WAPP member country",
+    "value": 0.556,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.556,
+      "CH4": 0,
+      "N2O": 0
+    },
+    "gwp_basis": "AR6",
+    "scope": 2,
+    "data_year": 2019,
+    "published_year": 2021,
+    "country": "NG",
+    "region": "WAPP",
+    "source": {
+      "id": "WAPP_ASB0034_2021",
+      "title": "Standardized Baseline for WAPP including Nigeria (ASB0034-2021)",
+      "publisher": "UNFCCC / WAPP",
+      "year": 2021,
+      "page": "Section 7, Table 1"
+    },
+    "additional_sources": [
+      {
+        "id": "WAPP_ASB0034_ASSESSMENT",
+        "title": "Assessment Report ASU006 ASB0034 WAPP",
+        "publisher": "UNFCCC / WAPP",
+        "year": 2021,
+        "page": "Section B, Step 5"
+      },
+      {
+        "id": "UNFCCC_CDM_TOOL07",
+        "title": "UNFCCC CDM Methodological Tool 07 v7.0",
+        "publisher": "UNFCCC",
+        "year": 2021,
+        "page": "Section 6.5, Step 5 / Equation 15"
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "Build margin extracted directly from ASB0034-2021 Table 1 as 0.556 tCO2/MWh. Unit conversion to kgCO2e/kWh is 1:1. The BM represents the most-recent dispatchable capacity additions (2015-2019) comprising the 20% generation sample set, using 2019 generation data.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.national.cm.2021",
+    "category": "grid_electricity",
+    "subcategory": "national_grid_combined_margin",
+    "description": "West African Power Pool (WAPP) grid combined margin CO2 emission factor for wind and solar power generation project activities, first crediting period",
+    "value": 0.573,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.573,
+      "CH4": 0,
+      "N2O": 0
+    },
+    "gwp_basis": "AR6",
+    "scope": 2,
+    "data_year": 2019,
+    "published_year": 2021,
+    "country": "NG",
+    "region": "WAPP",
+    "source": {
+      "id": "WAPP_ASB0034_2021",
+      "title": "Standardized Baseline for WAPP including Nigeria (ASB0034-2021)",
+      "publisher": "UNFCCC / WAPP",
+      "year": 2021,
+      "page": "Section 7, Table 1 (wind and solar row)"
+    },
+    "additional_sources": [
+      {
+        "id": "WAPP_ASB0034_ASSESSMENT",
+        "title": "Assessment Report ASU006 ASB0034 WAPP",
+        "publisher": "UNFCCC / WAPP",
+        "year": 2021,
+        "page": "Section B, Step 6"
+      },
+      {
+        "id": "UNFCCC_CDM_TOOL07",
+        "title": "UNFCCC CDM Methodological Tool 07 v7.0",
+        "publisher": "UNFCCC",
+        "year": 2021,
+        "page": "Section 6.6.1, Equation 16"
+      }
+    ],
+    "uncertainty_pct": 10,
+    "confidence": "high",
+    "methodology_note": "Combined margin extracted from ASB0034-2021 Table 1 as 0.573 tCO2/MWh for wind/solar project activities. Cross-check with TOOL07: CM = OM x 0.75 + BM x 0.25 = 0.578 x 0.75 + 0.556 x 0.25 = 0.5725, rounded to 0.573 tCO2/MWh. The general/other-projects first-crediting-period value is 0.567 tCO2/MWh (50/50 weights). Unit conversion to kgCO2e/kWh is 1:1.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.national.location.2020",
+    "category": "grid_electricity",
+    "subcategory": "national_grid",
+    "description": "Nigeria national grid location-based Scope 2 emission factor derived from 2020 Energy Databank plant generation records and IPCC 2006 default stationary-combustion factors. Represents NEFDB Phase 1.",
+    "value": 0.5717,
+    "unit": "kgCO2e_per_kWh",
+    "gas": null,
+    "gwp_basis": "AR6",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2026,
+    "country": "NG",
+    "source": {
+      "id": "ENERGY_DATABANK_GENERATION",
+      "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+      "publisher": "Federal Ministry of Energy / Energy Data Bank",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006,
+        "page": "Table 2.2 (p. 2.16 / PDF p. 16); Table 1.2 (p. 1.18 / PDF p. 18)"
+      },
+      {
+        "id": "NERC_2024_ANNUAL",
+        "title": "NERC 2024 Annual Report",
+        "publisher": "NERC",
+        "year": 2024
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "low",
+    "methodology_note": "Derived from generation-by-fuel data for 2020 (gas 7,281.71 GWh, hydro 75.59 GWh; all other fuels zero). Fuel input energy = generation x 3.6 TJ/GWh / thermal efficiency (35% assumed for gas). Emissions = fuel input x IPCC Table 2.2 CO2/CH4/N2O factors; CH4 and N2O converted using AR6 GWP (28 and 265). Hydro/solar/wind are zero-emission. The dataset under-represents national hydro because Kainji/Jebba/Shiroro 2020 records use non-MWh units and are excluded.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.aedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for AEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.141509,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.141372,
+      "CH4": 0.00000252,
+      "N2O": 2.52e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "North-Central (Abuja/FCT, Niger, Nasarawa, Kogi)",
+    "disco": "AEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 70% gas / 30% hydro regional generation mix to AEDC Q2 2024 billed energy (301.000 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.bedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for BEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.153639,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.1534896,
+      "CH4": 0.000002736,
+      "N2O": 2.736e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "South-South/East (Edo, Delta, Ondo, Ekiti)",
+    "disco": "BEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 76% gas / 24% hydro regional generation mix to BEDC Q2 2024 billed energy (179.794 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.eedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for EEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.171833,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.171666,
+      "CH4": 0.00000306,
+      "N2O": 3.06e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "South-East (Enugu, Anambra, Abia, Imo, Ebonyi)",
+    "disco": "EEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 85% gas / 15% hydro regional generation mix to EEDC Q2 2024 billed energy (159.799 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.ekedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for EKEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.177897,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.1777248,
+      "CH4": 0.000003168,
+      "N2O": 3.168e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "South (Lagos)",
+    "disco": "EKEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 88% gas / 12% hydro regional generation mix to EKEDC Q2 2024 billed energy (317.000 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.ibedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for IBEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.157682,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.1575288,
+      "CH4": 0.000002808,
+      "N2O": 2.808e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "South-West (Oyo, Ogun, Osun, Kwara)",
+    "disco": "IBEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 78% gas / 22% hydro regional generation mix to IBEDC Q2 2024 billed energy (269.530 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.iedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for IEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.161725,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.161568,
+      "CH4": 0.00000288,
+      "N2O": 2.88e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "South-West (Lagos)",
+    "disco": "IEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 80% gas / 20% hydro regional generation mix to IEDC Q2 2024 billed energy (360.322 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.jedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for JEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.137466,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.1373328,
+      "CH4": 0.000002448,
+      "N2O": 2.448e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "North (Plateau, Bauchi, Benue, Gombe)",
+    "disco": "JEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 68% gas / 32% hydro regional generation mix to JEDC Q2 2024 billed energy (105.606 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.kdedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for KDEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.133423,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.1332936,
+      "CH4": 0.000002376,
+      "N2O": 2.376e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "North-West (Kaduna, Kebbi, Sokoto, Zamfara, Katsina)",
+    "disco": "KDEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 66% gas / 34% hydro regional generation mix to KDEDC Q2 2024 billed energy (83.220 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.kedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for KEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.131402,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.131274,
+      "CH4": 0.00000234,
+      "N2O": 2.34e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "North (Kano, Jigawa, Katsina)",
+    "disco": "KEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 65% gas / 35% hydro regional generation mix to KEDC Q2 2024 billed energy (124.576 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.pedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for PEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.181941,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.181764,
+      "CH4": 0.00000324,
+      "N2O": 3.24e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "South-South (Rivers, Cross River, Akwa Ibom)",
+    "disco": "PEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 90% gas / 10% hydro regional generation mix to PEDC Q2 2024 billed energy (149.914 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  },
+  {
+    "id": "ng.grid.disco.yedc.2020",
+    "category": "grid_electricity",
+    "subcategory": "disco_location_based",
+    "description": "DisCo-level location-based grid emission factor for YEDC based on Q2 2024 billed energy and a 2020-derived regional generation mix.",
+    "value": 0.135445,
+    "unit": "kgCO2e_per_kWh",
+    "gas": {
+      "CO2": 0.1353132,
+      "CH4": 0.000002412,
+      "N2O": 2.412e-7
+    },
+    "gwp_basis": "AR5",
+    "scope": 2,
+    "data_year": 2020,
+    "published_year": 2024,
+    "country": "NG",
+    "region": "North-East (Adamawa, Taraba, Yobe, Borno)",
+    "disco": "YEDC",
+    "source": {
+      "id": "NBS_ELECTRICITY_DATA_2015_Q2_2024",
+      "title": "Nigeria Electricity Data 2015-Q2 2024",
+      "publisher": "NBS",
+      "year": 2024
+    },
+    "additional_sources": [
+      {
+        "id": "ENERGY_DATABANK_GENERATION",
+        "title": "Nigerian Energy Data Bank - Power Plant Generation Statistics",
+        "publisher": "Federal Ministry of Energy / Energy Data Bank",
+        "year": 2024
+      },
+      {
+        "id": "IPCC_2006_VOL2_CH2",
+        "title": "IPCC 2006 Guidelines Vol 2 Ch 2 Stationary Combustion",
+        "publisher": "IPCC",
+        "year": 2006
+      }
+    ],
+    "uncertainty_pct": 20,
+    "confidence": "medium",
+    "methodology_note": "Derived by applying a 67% gas / 33% hydro regional generation mix to YEDC Q2 2024 billed energy (93.852 GWh) and IPCC 2006 stationary-combustion EFs for natural gas. Oil, solar and other generation are treated as zero in Phase 1. Hydro share reflects DisCo territory proximity to Kainji/Jebba/Shiroro hydro vs Niger Delta/IPP gas plants. The underlying energy-databank plant-level hydro records for 2020 are incomplete (large hydro excluded due to non-MWh units), so NERC-reported hydro shares were used to anchor regional assumptions. EF does not include T&D losses or upstream gas fugitive emissions.",
+    "nefdb_version": "1.0.0"
+  }
+]

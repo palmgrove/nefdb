@@ -1,4 +1,4 @@
 import type { EmissionFactor } from "../types.ts";
+import { gridElectricityFactors } from "./grid_electricity.ts";
 
-// ponytail: intentionally empty for Phase 0; populated in subsequent phases
-export const allFactors: EmissionFactor[] = [];
+export const allFactors: EmissionFactor[] = [...gridElectricityFactors];

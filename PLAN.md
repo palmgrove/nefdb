@@ -2,9 +2,71 @@
 ## v1 Build Plan: From Raw Data to npm Publication
 
 > **Prepared:** June 2026  
-> **Status:** Pre-build — raw datasets collected, key grid-electricity gaps filled, documentation downloaded  
+> **Status:** In progress — Phases 0–3 committed to `main`; Phase 4 next  
 > **Target:** `@palmgrove/nefdb` published on npm, CC BY-SA 4.0  
 > **Maintainer:** Irenium Ltd (Palmgrove)
+
+---
+
+## Build Progress
+
+| Phase | Status | Factor Count | Key Commit |
+|---|---:|---:|---|
+| 0 — Bootstrap | ✅ Complete | 0 | — |
+| 1 — Grid Electricity | ✅ Complete | 15 | `feat: add Phase 1 grid electricity factors` |
+| 2 — Fuel Combustion | ✅ Complete | 16 | `feat: add Phase 2 fuel combustion and road transport factors` |
+| 3 — Domestic Aviation | ✅ Complete | 6 | `feat: add Phase 3 domestic aviation factors` |
+| 4 — Waste & Water | 🔄 Next | 8 | — |
+| 5 — Export + Documentation | ⏳ Pending | — | — |
+| 6 — Testing + Validation | ⏳ Pending | — | — |
+| 7 — npm Publication | ⏳ Pending | — | — |
+
+---
+
+## How We Build (Repeatable Workflow)
+
+Every phase follows the same vertical, deterministic workflow:
+
+1. **Explore.** Map affected files, existing sources, data gaps, and local docs/datasets. Identify what must be extracted before any code is written.
+2. **Determine strategy.** Agree the derivation approach, representative assumptions, and source hierarchy. Resolve ambiguities here.
+3. **Delegate parallel exploration subagents.** Use focused subagents to:
+   - Extract values from local source documents (PDFs, markdown, CSVs, PPTXs) and, where needed, from the web.
+   - Download authoritative PDFs/source files into `docs/<category>/` (gitignored) so every source is available locally for independent reproduction.
+   - Compute intermediate values and write calculation CSVs under `datasets/<category>/derived/`.
+   - Document each extraction/calculation in a markdown file.
+4. **Review and reconcile.** Compare subagent outputs, resolve conflicts, and choose the most defensible, well-documented values. Prefer conservative defaults when uncertainty remains.
+5. **Implement.** Delegate implementation subagents to:
+   - Add/modify `src/factors/<category>.ts` records.
+   - Update `src/factors/index.ts`, API helpers (`src/api/<category>.ts`), and `src/index.ts`.
+   - Update tests in `tests/schema.test.ts` (and new test files if needed).
+6. **Write progressive methodology.** Create `methodology/progressive/phase_XX_<name>.md` with numbered derivation steps, source citations, intermediate tables, and data-quality flags.
+7. **Run validation.** `bun test`, `bun run validate`, `bun run build`, `bun run build:csv`, `bun run build:json` must all pass.
+8. **Independent validation.** Dispatch a separate subagent that re-derives every committed factor from the documented sources alone, compares against `src/factors/<category>.ts`, and returns **ACCEPT** or exact discrepancies.
+9. **Commit and push.** Use concise one-line conventional-commit messages. Raw datasets and downloaded source documents remain local/gitignored; only code, methodology, and exported `data/*` are pushed.
+
+### Documentation Rules
+
+- Every derived value must have a documented, reproducible calculation file (`datasets/<category>/derived/*.csv` + `.md`).
+- Every source used must be present locally (`docs/<category>/`) or URL-cited with access date.
+- All assumptions (seat count, load factor, uplift, waste composition, BOD/TOW, etc.) must be flagged in methodology notes.
+- No factor enters the registry without a primary source from the canonical `src/sources/index.ts`.
+
+### Next Phase
+
+**Phase 4 — Waste & Water** (target: 8 factors):
+
+- 6 waste factors:
+  - `ng.waste.msw.landfill.managed`
+  - `ng.waste.msw.open_dump`
+  - `ng.waste.msw.open_burning`
+  - `ng.waste.organic.composting`
+  - `ng.waste.wastewater.domestic`
+  - `ng.waste.wastewater.industrial`
+- 2 water factors:
+  - `ng.water.treatment.supply`
+  - `ng.water.treatment.wastewater`
+
+Sources already available locally include the IPCC FOD model, Nigeria BUR2, Nigeria open-burning factsheet, Lagos WASH factsheet, UK DEFRA 2024, and IPCC 2006 Vol 5 (Waste). Start by exploring these documents and determining Nigeria-specific inputs (waste composition, climate zone, methane correction factor, BOD/TOW assumptions) before writing any code.
 
 ---
 

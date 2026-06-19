@@ -18,7 +18,7 @@
 | **DisCo-level grid factors** | NERC 2022-2024 annual reports (MD); quarterly reports 2024 Q1/Q3/Q4; NBS Q4 2023 energy billed by DisCo; **Energy Databank generation-by-plant CSV (653 records)**; **NBS Electricity Data 2015–Q2 2024.xlsx** | **Medium-High** | DisCo-specific EFs require generation-mix calculation; no off-the-shelf DisCo EF table exists anywhere. **Note:** Energy Databank `ELPD_NESCO_GEN` hydro value is a 1,000× unit error and must be corrected before use. |
 | **Diesel generator combustion** | IPCC 2006 Vol2 Ch2 Stationary Combustion; GHG Protocol Corporate Standard; EPA GHG EF Hub 2024; UK DEFRA 2024/2026 methodology; NNPC Annual Statistics (fuel consumption) | **High** | Efficiency-adjusted kWh factor needs documented Nigeria-specific genset efficiency assumption |
 | **Petrol / LPG / CNG combustion** | IPCC 2006 Vol2 Ch2; EPA GHG EF Hub 2024; UK DEFRA 2024; GHG Protocol Corporate Standard; NNPC fuel stats | **High** | LPG combustion EF confirmed; CNG needs explicit NCV value for Nigeria |
-| **Fleet / road vehicles** | IPCC 2006 Vol2 Ch3 Mobile Combustion; ICCT Soot-Free Transport; World Bank (2013) Nigeria vehicle survey; NBS/FRSC vehicle stock data; EPA GHG EF Hub 2024; Lagos Transport Statistics 2020; NESREA vehicular emission regulations 2011 | **Medium** | No measured Nigeria VKT data exists. v1 will use fuel-based factors (`kgCO2e/litre`) as primary output. Optional distance-based factors derived from World Bank (2013) annual-km defaults (car 17,000 km/yr, motorcycle 7,000 km/yr, HGV 33,500 km/yr, etc.) may be published with low–medium confidence flags. |
+| **Fleet / road vehicles** | IPCC 2006 Vol2 Ch3 Mobile Combustion; ICCT Soot-Free Transport; World Bank (2013) Nigeria vehicle survey; NBS/FRSC vehicle stock data; EPA GHG EF Hub 2024; Lagos Transport Statistics 2020; NESREA vehicular emission regulations 2011 | **Medium** | No measured Nigeria VKT data exists. v1 uses fuel-based factors (`kgCO2e/litre`) as the primary output. Optional distance-based factors (`kgCO2e/km`) are UK DEFRA 2024 per-km proxies, not derived from World Bank annual-km defaults. World Bank (2013) annual-km defaults are retained only for optional stock-to-total-VKT calculations. |
 | **Domestic aviation** | ICAO ICEC methodology v13.1; Lee et al 2021 (aviation RF); NCAA Executive Summary 2022; GLEC Framework v3 | **Medium** | Nigerian route-specific EFs need ICAO methodology applied to route distances |
 | **Waste and water** | IPCC Waste Model FOD (XLS); Lagos WASH factsheet; Nigeria BUR2; Nigeria open-burning data; Fecal Sludge Management report; Solid Waste Management Nigeria draft report; UK DEFRA 2026 waste factors | **Medium-Low** | Waste composition data for Nigeria is thin; will use IPCC defaults with Nigeria-specific waste composition where available |
 | **International EF benchmarks** | EPA GHG EF Hub 2011-2025; UK DEFRA 2024 full set; IPCC 2006 GL Vol2; IPCC 2019 Refinements; OpenEmissionFactorsDB; GHGCalc datasets | **High** | These underpin methodology; no gap |
@@ -47,15 +47,16 @@ Two material data-quality issues were investigated by focused subagents before i
 **Verdict:** No direct Nigeria VKT dataset exists in public sources.
 
 **Action for implementation:**
-- Primary NEFDB v1 road-transport factors remain **fuel-based** (`kgCO2e/litre` petrol/diesel).
-- Optional distance-based factors may be derived from **World Bank (2013) Nigeria vehicle survey** annual-km defaults:
+- Primary NEFDB v1 road-transport factors are **fuel-based** (`kgCO2e/litre` petrol/diesel).
+- Optional distance-based factors (`kgCO2e/km`) are **UK DEFRA 2024 per-km proxies**, not derived from World Bank annual-km defaults.
+- World Bank (2013) Nigeria vehicle survey annual-km defaults are retained only for optional stock-to-total-VKT calculations:
   - Motorcycle: 7,000 km/yr
   - Passenger car: 17,000 km/yr
   - Light commercial / danfo minibus: 30,000 km/yr
   - Urban bus: 30,000 km/yr
   - Long-distance coach: 45,000 km/yr
   - Heavy goods vehicle: 33,500 km/yr
-- Any derived vehicle-km factors must carry `confidence=medium` and explicit `source=WB_2013_Nigeria_vehicle_survey` flags.
+- Distance-based factors must carry `confidence=low–medium` and explicit `source=DEFRA_2024_FULL` (+ `WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013` where used for stock-to-VKT) flags.
 
 **Details:** `NEFDB/docs/transport_aviation/vkt_gap_verdict.md`
 
@@ -189,32 +190,32 @@ This means:
 ### 2. Fuel Combustion — Stationary (~8 factors)
 
 | Factor ID | Fuel | Value | Unit | Primary Source |
-|---|---|---|---|---|
-| `ng.fuel.diesel.stationary` | Diesel — stationary combustion | ~2.68 | kgCO2e/litre | IPCC 2006 Vol2 Ch2 + UK DEFRA 2024 |
-| `ng.fuel.diesel.stationary.kwh.rated` | Diesel — kWh basis, rated genset efficiency (33%) | ~0.57 | kgCO2e/kWh | Above + manufacturer specs |
-| `ng.fuel.diesel.stationary.kwh.field` | Diesel — kWh basis, field efficiency Nigeria (28%) | ~0.67 | kgCO2e/kWh | Above + Somorin et al 2017 |
-| `ng.fuel.petrol.stationary` | Petrol — stationary | ~2.31 | kgCO2e/litre | IPCC 2006 Vol2 Ch2 + UK DEFRA 2024 |
-| `ng.fuel.lpg.stationary` | LPG — stationary combustion | ~1.63 | kgCO2e/litre | IPCC 2006 Vol2 Ch2 + UK DEFRA 2024 |
-| `ng.fuel.cng.stationary` | CNG — stationary combustion | ~2.04 | kgCO2e/kg | IPCC 2006 Vol2 Ch2 |
-| `ng.fuel.naturalgas.stationary` | Natural gas — stationary | ~2.04 | kgCO2e/m3 | IPCC 2006 Vol2 Ch2 + NNPC stats |
-| `ng.fuel.hfo.stationary` | Heavy fuel oil — stationary | ~3.17 | kgCO2e/litre | IPCC 2006 Vol2 Ch2 |
+|---|---|---:|---|---|
+| `ng.fuel.diesel.stationary` | Diesel — stationary combustion | 2.662 | kgCO2e/litre | DEFRA 2024; IPCC 2006 corroborated |
+| `ng.fuel.diesel.stationary.kwh.rated` | Diesel — kWh basis, rated genset efficiency (33%) | 0.813 | kgCO2e/kWh | Above + DEFRA 2024 conversion |
+| `ng.fuel.diesel.stationary.kwh.field` | Diesel — kWh basis, field efficiency Nigeria (28%) | 0.958 | kgCO2e/kWh | Above + Somorin et al 2017 |
+| `ng.fuel.petrol.stationary` | Petrol — stationary | 2.354 | kgCO2e/litre | DEFRA 2024; IPCC 2006 corroborated |
+| `ng.fuel.lpg.stationary` | LPG — stationary combustion | 1.557 | kgCO2e/litre | DEFRA 2024; IPCC 2006 corroborated |
+| `ng.fuel.cng.stationary` | CNG — stationary combustion | 2.568 | kgCO2e/kg | DEFRA 2024 |
+| `ng.fuel.naturalgas.stationary` | Natural gas — stationary | 2.045 | kgCO2e/m3 | DEFRA 2024; IPCC 2006 corroborated |
+| `ng.fuel.hfo.stationary` | Heavy fuel oil — stationary | 3.175 | kgCO2e/litre | DEFRA 2024; IPCC 2006 corroborated |
 
 > **Key design choice:** `kwh.field` (lower efficiency = higher emissions per kWh) is the **recommended default** — reflects real-world performance of Nigeria's aged genset fleet per Somorin et al. 2017 LCA study.
 
 ### 3. Fuel Combustion — Mobile / Road Transport (~8 factors)
 
-| Factor ID | Fuel/Vehicle | Unit | Primary Source |
-|---|---|---|---|
-| `ng.transport.road.petrol.per_litre` | Petrol — fuel-based (no vehicle type) | kgCO2e/litre | IPCC 2006 + UK DEFRA 2024 |
-| `ng.transport.road.diesel.per_litre` | Diesel — fuel-based (no vehicle type) | kgCO2e/litre | IPCC 2006 + UK DEFRA 2024 |
-| `ng.transport.road.petrol.car` | Petrol car | kgCO2e/km | IPCC 2006 Vol2 Ch3 + ICCT West Africa + WB 2013 km defaults (optional) |
-| `ng.transport.road.diesel.car` | Diesel car | kgCO2e/km | IPCC 2006 Vol2 Ch3 + WB 2013 km defaults (optional) |
-| `ng.transport.road.petrol.motorcycle` | Petrol motorcycle (okada) | kgCO2e/km | IPCC 2006 Vol2 Ch3 + WB 2013 km defaults (optional) |
-| `ng.transport.road.diesel.bus` | Diesel bus (BRT/commercial) | kgCO2e/km | IPCC 2006 Vol2 Ch3 + Lagos stats + WB 2013 km defaults (optional) |
-| `ng.transport.road.diesel.truck.small` | Diesel light truck | kgCO2e/km | IPCC 2006 Vol2 Ch3 + WB 2013 km defaults (optional) |
-| `ng.transport.road.diesel.truck.heavy` | Diesel HGV | kgCO2e/km | IPCC 2006 Vol2 Ch3 + WB 2013 km defaults (optional) |
+| Factor ID | Fuel/Vehicle | Value | Unit | Primary Source |
+|---|---|---:|---|---|
+| `ng.transport.road.petrol.per_litre` | Petrol — fuel-based (no vehicle type) | 2.354 | kgCO2e/litre | DEFRA 2024; IPCC 2006 corroborated |
+| `ng.transport.road.diesel.per_litre` | Diesel — fuel-based (no vehicle type) | 2.662 | kgCO2e/litre | DEFRA 2024; IPCC 2006 corroborated |
+| `ng.transport.road.petrol.car` | Petrol car | 0.165 | kgCO2e/km | UK DEFRA 2024 per-km proxy |
+| `ng.transport.road.diesel.car` | Diesel car | 0.170 | kgCO2e/km | UK DEFRA 2024 per-km proxy |
+| `ng.transport.road.petrol.motorcycle` | Petrol motorcycle (okada) | 0.114 | kgCO2e/km | UK DEFRA 2024 per-km proxy |
+| `ng.transport.road.diesel.bus` | Diesel bus (BRT/commercial) | 3.254 | kgCO2e/km | UK DEFRA 2024 per-km proxy × 30-passenger occupancy |
+| `ng.transport.road.diesel.truck.small` | Diesel light truck | 0.250 | kgCO2e/km | UK DEFRA 2024 per-km proxy |
+| `ng.transport.road.diesel.truck.heavy` | Diesel HGV | 0.873 | kgCO2e/km | UK DEFRA 2024 per-km proxy |
 
-> **Design choice for v1:** Fuel-based factors (`kgCO2e/litre`) are the **primary, recommended** road-transport factors because Nigerian fuel-consumption data is more reliable than vehicle-kilometre data. Distance-based factors (`kgCO2e/km`) are derived optionally from World Bank (2013) Nigeria annual-km defaults and must be flagged `confidence=low–medium` with explicit source citations. See `NEFDB/docs/transport_aviation/vkt_gap_verdict.md`.
+> **Design choice for v1:** Fuel-based factors (`kgCO2e/litre`) are the **primary, recommended** road-transport factors because Nigerian fuel-consumption data is more reliable than vehicle-kilometre data. Distance-based factors (`kgCO2e/km`) are UK DEFRA 2024 per-km proxies, not derived from World Bank annual-km defaults. World Bank (2013) Nigeria annual-km defaults are used only for optional stock-to-total-VKT calculations. See `NEFDB/docs/transport_aviation/vkt_gap_verdict.md` and `NEFDB/methodology/progressive/phase_02_fuel_combustion.md`.
 
 ### 4. Domestic Aviation (~6 factors)
 
@@ -426,19 +427,23 @@ Methodology steps:
 ### Phase 2 — Fuel Combustion Factors (Day 5)
 
 **2a. Stationary combustion — 0.5 day**
-- Extract NCV + emission factor per fuel from IPCC 2006 Vol2 Ch2 MD (Table 2.2)
+- Extract per-unit emission factors from IPCC 2006 Vol2 Ch2 (Table 2.2)
 - Cross-check with UK DEFRA 2024 XLSX conversion factors
-- Agreement within 2%: use IPCC primary, DEFRA as corroboration
-- Diesel kWh variants:
-  - rated: diesel_EF_per_litre / (0.33 * 3.6) = kgCO2e/kWh
-  - field: diesel_EF_per_litre / (0.28 * 3.6) = kgCO2e/kWh [DEFAULT]
-  - Source: Somorin et al. 2017 for field efficiency value
+- Agreement within ~3%: use DEFRA 2024 as primary, IPCC 2006 as corroboration
+- Diesel kWh variants use the standard generator conversion:
+  ```
+  kgCO2e/kWh_e = per_litre_kgCO2e/L / (kWh_thermal_per_litre × electrical_efficiency)
+  ```
+  using DEFRA 2024 `kWh_thermal_per_litre = 9.927` for diesel.
+  - rated: 2.662 / (9.927 × 0.33) = **0.813 kgCO2e/kWh**
+  - field: 2.662 / (9.927 × 0.28) = **0.958 kgCO2e/kWh** [DEFAULT]
+  - Source: Somorin et al. 2017 for the Nigeria field-efficiency context; 28% is a NEFDB operational assumption
 - Populate 8 stationary factors
 
 **2b. Mobile combustion — 0.5 day**
-- Extract vehicle-type EFs from IPCC 2006 Vol2 Ch3 MD
-- Apply ICCT West Africa correction for fleet age/condition
-- Populate 8 road transport factors
+- Use DEFRA 2024 per-litre values as primary fuel-based road factors (corroborated with IPCC 2006 Vol2 Ch3)
+- Use DEFRA 2024 per-km values as optional distance-based proxies; flag low–medium confidence
+- Record World Bank (2013) annual-km defaults only for optional stock-to-total-VKT calculations
 - Write `methodology/fuel_combustion.md`
 
 **Documentation for this phase:** store extraction tables, NCV/fuel EF reconciliation notes, vehicle correction logic, and `methodology/fuel_combustion.md` draft in `methodology/progressive/phase_02_fuel_combustion.md`.
@@ -605,6 +610,7 @@ Every derived factor has a numbered step-by-step derivation in methodology/*.md.
 | `NCAA_EXEC_2022` | NCAA Executive Summary Jan-Dec 2022 | NCAA | 2023 | Aviation fleet data |
 | `ICCT_SOOTFREE_2019` | Soot-Free Transport for Nigeria | ICCT | 2019 | Road transport |
 | `WB_LAGOS_AIR_2021` | Lagos Air Quality Management (World Bank) | World Bank | 2021 | Transport context |
+| `WB_LOW_CARBON_DEVELOPMENT_NIGERIA_2013` | Assessing Low-Carbon Development in Nigeria: An Analysis of Four Sectors | World Bank | 2013 | Transport context |
 | `NESREA_VEH_2011` | National Environmental (Vehicular) Regulations 2011 | NESREA | 2011 | Regulatory context |
 | `NNPC_STATS_2023` | NNPC Annual Statistics Bulletin S3 | NNPC | 2023 | Fuel consumption |
 | `SOMORIN_2017` | Life cycle assessment of self-generated electricity in Nigeria | Somorin et al., Renewable Energy | 2017 | Genset efficiency |

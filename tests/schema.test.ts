@@ -6,7 +6,7 @@ test("nefdb.list() returns an array", () => {
   expect(Array.isArray(result)).toBe(true);
 });
 
-test("nefdb.list() contains all 31 expected factor IDs", () => {
+test("nefdb.list() contains all 37 expected factor IDs", () => {
   const ids = new Set(nefdb.list().map((f) => f.id));
   const expected = [
     // grid electricity (15)
@@ -43,11 +43,18 @@ test("nefdb.list() contains all 31 expected factor IDs", () => {
     "ng.transport.road.diesel.bus",
     "ng.transport.road.diesel.truck.small",
     "ng.transport.road.diesel.truck.heavy",
+    // aviation (6)
+    "ng.aviation.domestic.los_abv",
+    "ng.aviation.domestic.los_phc",
+    "ng.aviation.domestic.los_kan",
+    "ng.aviation.domestic.abv_phc",
+    "ng.aviation.domestic.generic",
+    "ng.aviation.domestic.rf_multiplier",
   ];
   for (const id of expected) {
     expect(ids.has(id)).toBe(true);
   }
-  expect(ids.size).toBe(31);
+  expect(ids.size).toBe(37);
 });
 
 test("nefdb.fuel.diesel() returns the correct shape and values", () => {
@@ -85,4 +92,29 @@ test("nefdb.transport.road('petrol', 'motorcycle') returns expected value", () =
   expect(factor).toBeDefined();
   expect(factor!.value).toBeCloseTo(0.114);
   expect(factor!.unit).toBe("kgCO2e_per_km");
+});
+
+test("nefdb.aviation.route() returns undefined for unknown routes", () => {
+  expect(nefdb.aviation.route("LOS", "JFK")).toBeUndefined();
+});
+
+test("nefdb.aviation.route('LOS', 'ABV') returns correct unit and value", () => {
+  const factor = nefdb.aviation.route("LOS", "ABV");
+  expect(factor).toBeDefined();
+  expect(factor!.value).toBeCloseTo(0.1962);
+  expect(factor!.unit).toBe("kgCO2e_per_passenger_km");
+});
+
+test("nefdb.aviation.route('ABV', 'LOS') works via reverse lookup", () => {
+  const factor = nefdb.aviation.route("ABV", "LOS");
+  expect(factor).toBeDefined();
+  expect(factor!.value).toBeCloseTo(0.1962);
+  expect(factor!.unit).toBe("kgCO2e_per_passenger_km");
+});
+
+test("nefdb.aviation.route('LOS', 'ABV', { rf: true }) applies radiative forcing multiplier", () => {
+  const factor = nefdb.aviation.route("LOS", "ABV", { rf: true });
+  expect(factor).toBeDefined();
+  expect(factor!.value).toBeCloseTo(0.1962 * 1.9);
+  expect(factor!.unit).toBe("kgCO2e_per_passenger_km");
 });

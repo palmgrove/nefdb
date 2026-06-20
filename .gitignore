@@ -46,3 +46,12 @@ dist/
 # Environment files
 .env
 .env.local
+
+# Development plans and internal working documents (not part of the published package)
+PLAN.md
+PUBLISH_DATASETS.md
+data_readiness_report.md
+methodology/progressive/
+
+# Tooling/virtual environments used for derived artifacts
+.venv-pdf/

@@ -1,6 +1,6 @@
 {
   "name": "@palmgrove/nefdb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nigeria Emission Factor Database — the first open, versioned emission factor database for Nigerian operations",
   "keywords": [
     "nigeria",
@@ -30,7 +30,8 @@
       "require": "./dist/index.cjs"
     },
     "./data/json": "./data/nefdb_v1.json",
-    "./data/csv": "./data/nefdb_v1.csv"
+    "./data/csv": "./data/nefdb_v1.csv",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist/",

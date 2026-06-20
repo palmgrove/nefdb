@@ -20,8 +20,12 @@
   "license": "CC-BY-SA-4.0",
   "author": "Irenium Ltd <hello@palmgrove.ng>",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
@@ -37,9 +41,10 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outfile dist/index.js --format esm --target node && bun build src/index.ts --outfile dist/index.cjs --format cjs --target node",
+    "build": "bun build src/index.ts --outfile dist/index.js --format esm --target node && bun build src/index.ts --outfile dist/index.cjs --format cjs --target node && bun run build:types",
     "build:csv": "bun run scripts/build_csv.ts",
     "build:json": "bun run scripts/build_json.ts",
+    "build:types": "bun run scripts/build_types.ts",
     "validate": "bun run scripts/validate.ts",
     "test": "bun test",
     "prepublishOnly": "bun run validate && bun run test && bun run build && bun run build:csv && bun run build:json"

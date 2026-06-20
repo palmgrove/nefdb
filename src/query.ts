@@ -44,7 +44,7 @@ export function query(
         }
         continue;
       }
-      if ((factor as Record<string, unknown>)[key] !== value) {
+      if ((factor as unknown as Record<string, unknown>)[key] !== value) {
         return false;
       }
     }

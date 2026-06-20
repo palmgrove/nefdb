@@ -1,5 +1,7 @@
 # NEFDB - Nigeria Emission Factor Database
 
+[![npm version](https://img.shields.io/npm/v/@palmgrove/nefdb.svg)](https://www.npmjs.com/package/@palmgrove/nefdb)
+
 NEFDB publishes versioned Scope 1 and Scope 2 emission factors for Nigerian operations.
 
 ## What is NEFDB?

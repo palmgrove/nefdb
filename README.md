@@ -92,7 +92,14 @@ const domesticWastewater = nefdb.waste.wastewater("domestic");
 
 ### Raw data files
 
-The current release also ships as JSON and CSV exports. These paths point to the static files shipped with the package:
+The current release also ships as JSON and CSV exports:
+
+```typescript
+import csv from "@palmgrove/nefdb/data/csv";          // string
+import factors from "@palmgrove/nefdb/data/json";     // EmissionFactor[]
+```
+
+If you prefer to read the static files directly, you can still resolve them from the package root:
 
 ```typescript
 import { readFileSync } from "node:fs";
@@ -142,4 +149,4 @@ bun test
 ## Repository
 
 - GitHub: [https://github.com/palmgrove/nefdb](https://github.com/palmgrove/nefdb)
-- Current version: `1.0.1`
+- Current version: `1.0.2`

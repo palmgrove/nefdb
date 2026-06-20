@@ -1,6 +1,6 @@
 {
   "name": "@palmgrove/nefdb",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Nigeria Emission Factor Database — the first open, versioned emission factor database for Nigerian operations",
   "keywords": [
     "nigeria",
@@ -29,8 +29,16 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./data/json": "./data/nefdb_v1.json",
-    "./data/csv": "./data/nefdb_v1.csv",
+    "./data/json": {
+      "types": "./dist/data/json.d.ts",
+      "import": "./dist/data/json.js",
+      "require": "./dist/data/json.cjs"
+    },
+    "./data/csv": {
+      "types": "./dist/data/csv.d.ts",
+      "import": "./dist/data/csv.js",
+      "require": "./dist/data/csv.cjs"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -42,13 +50,16 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outfile dist/index.js --format esm --target node && bun build src/index.ts --outfile dist/index.cjs --format cjs --target node && bun run build:types",
+    "build": "bun build src/index.ts src/data/csv.ts src/data/json.ts --outdir dist --format esm --target node && bun build src/index.ts --outfile dist/index.cjs --format cjs --target node && bun run build:types",
+    "build:data": "bun run scripts/build_data_modules.ts",
+    "prebuild": "bun run build:data",
+    "pretest": "bun run build:data",
     "build:csv": "bun run scripts/build_csv.ts",
     "build:json": "bun run scripts/build_json.ts",
     "build:types": "bun run scripts/build_types.ts",
     "validate": "bun run scripts/validate.ts",
     "test": "bun test",
-    "prepublishOnly": "bun run validate && bun run test && bun run build && bun run build:csv && bun run build:json"
+    "prepublishOnly": "bun run validate && bun run test && bun run build:csv && bun run build:json && bun run build:data && bun run build"
   },
   "devDependencies": {
     "@types/bun": "latest",

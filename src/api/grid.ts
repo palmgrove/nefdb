@@ -1,3 +1,4 @@
+import { allFactors } from "../factors/index.ts";
 import type {
   DisCo,
   EmissionFactor,
@@ -6,7 +7,30 @@ import type {
   QueryOptions,
 } from "../types.ts";
 
+function toFactorView(
+  factor: EmissionFactor,
+  options?: QueryOptions
+): MinimalFactor | FactorWithSource | EmissionFactor {
+  if (options?.full) return factor;
+  if (options?.withSource) {
+    return {
+      id: factor.id,
+      value: factor.value,
+      unit: factor.unit,
+      source: factor.source,
+    };
+  }
+  return { id: factor.id, value: factor.value, unit: factor.unit };
+}
+
 type Margin = "om" | "bm" | "cm" | "location";
+
+const NATIONAL_IDS: Record<Margin, string> = {
+  om: "ng.grid.national.om.2021",
+  bm: "ng.grid.national.bm.2021",
+  cm: "ng.grid.national.cm.2021",
+  location: "ng.grid.national.location.2024",
+};
 
 export function national(
   options?: QueryOptions,
@@ -16,17 +40,25 @@ export function national(
   options?: QueryOptions,
 ): MinimalFactor | FactorWithSource | EmissionFactor | undefined;
 export function national(
-  _marginOrOptions?: Margin | QueryOptions,
-  _options?: QueryOptions,
+  marginOrOptions?: Margin | QueryOptions,
+  options?: QueryOptions,
 ): MinimalFactor | FactorWithSource | EmissionFactor | undefined {
-  // ponytail: Phase 0 — zero factors, returns undefined until populated
-  return undefined;
+  const margin =
+    typeof marginOrOptions === "string" ? marginOrOptions : "cm";
+  const opts = typeof marginOrOptions === "string" ? options : marginOrOptions;
+  const factor = allFactors.find((f) => f.id === NATIONAL_IDS[margin]);
+  return factor ? toFactorView(factor, opts) : undefined;
 }
 
 export function disco(
-  _name: DisCo,
-  _options?: QueryOptions,
+  name: DisCo,
+  options?: QueryOptions,
 ): MinimalFactor | FactorWithSource | EmissionFactor | undefined {
-  // ponytail: Phase 0 — zero factors, returns undefined until populated
-  return undefined;
+  const factor = allFactors.find(
+    (f) =>
+      f.disco === name &&
+      f.id.startsWith("ng.grid.disco.") &&
+      f.id.endsWith(".2024")
+  );
+  return factor ? toFactorView(factor, options) : undefined;
 }

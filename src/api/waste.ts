@@ -47,6 +47,7 @@ export function wastewater(
   type: "domestic" | "industrial",
   options?: QueryOptions
 ) {
+  if (type !== "domestic" && type !== "industrial") return undefined;
   const id =
     type === "domestic"
       ? "ng.waste.wastewater.domestic"

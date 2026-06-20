@@ -15,7 +15,7 @@
   "homepage": "https://github.com/palmgrove/nefdb",
   "repository": {
     "type": "git",
-    "url": "https://github.com/palmgrove/nefdb.git"
+    "url": "git+https://github.com/palmgrove/nefdb.git"
   },
   "license": "CC-BY-SA-4.0",
   "author": "Irenium Ltd <hello@palmgrove.ng>",

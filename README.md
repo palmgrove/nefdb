@@ -121,7 +121,7 @@ const json = JSON.parse(
 
 ## Methodology
 
-Every factor in NEFDB is derived from documented source data and calculation steps. See [`METHODOLOGY.md`](METHODOLOGY.md) for the full derivation methodology and audit trail.
+Every factor in NEFDB is derived from documented source data and calculation steps. See [`METHODOLOGY.md`](METHODOLOGY.md) for the full derivation methodology and audit trail, or download [`NEFDB Methodology.pdf`](NEFDB%20Methodology.pdf) for a printable version.
 
 ## Changelog
 
